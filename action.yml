@@ -1,0 +1,25 @@
+name: 'SendEmail by ssmtp'
+description: 'SendEmail by ssmtp'
+inputs:
+  subject:
+    required: true
+  smtp_server:
+    required: true
+  smtp_user:
+    required: true
+  smtp_password:
+    required: true
+	to_address:
+    required: true
+	from_address:
+    required: true
+	body:
+    required: false
+	attachments:
+    required: false
+	attachments_filename:
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
