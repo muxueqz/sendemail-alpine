@@ -9,15 +9,15 @@ inputs:
     required: true
   smtp_password:
     required: true
-	to_address:
+  to_address:
     required: true
-	from_address:
+  from_address:
     required: true
-	body:
+  body:
     required: false
-	attachments:
+  attachments:
     required: false
-	attachments_filename:
+  attachments_filename:
     required: false
 
 runs:
