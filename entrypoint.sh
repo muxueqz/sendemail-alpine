@@ -1,4 +1,8 @@
 #!/bin/sh
+if [ -z $INPUT_ATTACHMENTS ] ; then
+  echo  "INPUT_ATTACHMENTS is NULL!!!"
+  exit 1
+fi
 echo "
 # The user that gets all the mails (UID < 1000, usually the admin)
 #root=username@gmail.com
