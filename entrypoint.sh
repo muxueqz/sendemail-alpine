@@ -3,6 +3,10 @@ if [ -z "$INPUT_ATTACHMENTS" ] ; then
   echo  "INPUT_ATTACHMENTS is NULL!!!"
   exit 1
 fi
+
+INPUT_ATTACHMENTS_LEN=$(echo "$INPUT_ATTACHMENTS" | wc -c)
+echo  "INPUT_ATTACHMENTS Length is $INPUT_ATTACHMENTS_LEN"
+
 echo "
 # The user that gets all the mails (UID < 1000, usually the admin)
 #root=username@gmail.com
