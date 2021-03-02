@@ -34,6 +34,8 @@ AuthMethod=LOGIN
 FromLineOverride=yes
 " > /etc/ssmtp/ssmtp.conf
 
-echo "$INPUT_ATTACHMENTS" > /dev/shm/atts.txt
-echo -e "To:$INPUT_TO_ADDRESS\nFrom:$INPUT_FROM_ADDRESS\nSubject: $INPUT_SUBJECT\n\n $INPUT_BODY"| (cat - && uuencode /dev/shm/atts.txt $INPUT_ATTACHMENTS_FILENAME) | \
+for i in $INPUT_ATTACHMENTS/*.docx;do
+  echo "$i" > /dev/shm/atts.txt
+  echo -e "To:$INPUT_TO_ADDRESS\nFrom:$INPUT_FROM_ADDRESS\nSubject: $INPUT_SUBJECT\n\n $INPUT_BODY"| (cat - && uuencode /dev/shm/atts.txt $INPUT_ATTACHMENTS_FILENAME) | \
   ssmtp -v $INPUT_TO_ADDRESS
+done
