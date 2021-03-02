@@ -38,5 +38,5 @@ for i in $INPUT_ATTACHMENTS/*.docx;do
   echo $i
   cat "$i" > /dev/shm/atts.txt
   echo -e "To:$INPUT_TO_ADDRESS\nFrom:$INPUT_FROM_ADDRESS\nSubject: $INPUT_SUBJECT\n\n $INPUT_BODY"| (cat - && uuencode /dev/shm/atts.txt $i) | \
-  ssmtp -v $INPUT_TO_ADDRESS
+  ssmtp $INPUT_TO_ADDRESS
 done
